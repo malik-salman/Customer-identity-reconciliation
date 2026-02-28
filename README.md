@@ -57,14 +57,41 @@ The system must:
 
 ---
 
-## 🔄 API Endpoint
+## 🚀 Live Deployment
 
-### POST `/identify`
+The service is deployed on Render and is publicly accessible.
 
-### Request Body
+### 🔗 Base URL
+https://customer-identity-reconciliation.onrender.com
+
+### 🔗 Identify Endpoint
+POST https://customer-identity-reconciliation.onrender.com/identify
+
+---
+
+## 📦 Example Request
+
+### Request Body (JSON)
 
 ```json
 {
-  "email": "string (optional)",
-  "phoneNumber": "string (optional)"
-} 
+  "email": "george@hillvalley.edu",
+  "phoneNumber": "919191"
+}
+```
+
+### Example cURL Command
+
+```bash
+curl -X POST https://customer-identity-reconciliation.onrender.com/identify \
+-H "Content-Type: application/json" \
+-d '{"email":"george@hillvalley.edu","phoneNumber":"919191"}'
+```
+
+---
+
+## 📌 Important Notes
+
+- Only JSON body is supported (not form-data)
+- Either `email` or `phoneNumber` is required
+- Service consolidates contact identity based on matching email or phone number
